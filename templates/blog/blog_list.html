@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+Blog-site | Blogs list
+{% endblock title %}
+
+
+{% block content %} 
+{% comment %} <div class="container">
+    <div class="card">
+        <h5 class="card-header text-center">Featured</h5>
+         {% for post in posts %}
+        <div class="card-body">
+          <h5 class="card-title">{{post.title}}</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <a href="{{post.get_absolute_url}}" class="btn btn-primary">Post Details</a>
+        </div>
+        {% endfor %}
+      </div>
+</div> {% endcomment %}
+{% endblock content %} 

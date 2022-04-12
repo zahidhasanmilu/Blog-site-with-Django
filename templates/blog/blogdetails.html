@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+
+{% block title %}
+Blog-site | Blogs Details
+{% endblock title %}
+
+
+{% block content %} 
+<div class="container">
+    <div class="card">
+        <h5 class="card-header text-center">Blog Details</h5>
+        <div class="card-body">
+            <label for=""> <b>Title: </b> </label>
+            <h5 class="card-title">{{post.title}}</h5>
+            <label for=""> <b>Catagory: </b></label>
+            <p class="card-text">{{post.catagory}}</p>
+            <label for=""><b>Intro: </b></label>
+            <p class="card-text">{{post.intro}}</p>
+            <label for=""><b>Body:</b> </label>
+            <p class="card-text">{{post.body}}</p>
+    
+        </div><hr>
+    </div>
+</div>
+{% endblock content %} 
