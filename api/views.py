@@ -49,6 +49,7 @@ def update_blog(request, id):
             serialized.save()
             return Response("Student Information Update")
     except:
+
         return HttpResponse('Student Not Found')
 
 # Create
