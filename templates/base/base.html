@@ -29,11 +29,11 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
               </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle active" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Catagori
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <ul class="dropdown-menu " aria-labelledby="navbarDropdown">
                     {% for cat in catagories %}
                     <li><a class="dropdown-item" href="">{{cat.title}}</a></li>
                     {% endfor %}
@@ -41,12 +41,14 @@
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
+                <a class="nav-link active" aria-current="page" href="http://127.0.0.1:8000/admin/">Admin</a>
               </li>
             </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex" method="POST" action="{% url 'search' %}">
+              {% csrf_token %}
+              <input class="form-control me-2" name="search_file" type="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-outline-danger" type="submit">Search</button>
+             
             </form>
           </div>
         </div>
