@@ -1,5 +1,7 @@
 from django.db import models
 from django.urls import reverse
+from autoslug import AutoSlugField
+
 
 # Create your models here.
 
@@ -8,7 +10,8 @@ class Post(models.Model):
     title = models.CharField(max_length=250)
     catagory = models.ForeignKey(
         "Catagory", on_delete=models.CASCADE, null=True)
-    slug = models.SlugField()
+    slug = AutoSlugField(populate_from='title',
+                         blank=True, unique=True, null=True)
     intro = models.TextField()
     body = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
@@ -25,7 +28,8 @@ class Post(models.Model):
 
 class Catagory(models.Model):
     title = models.CharField(max_length=250)
-    slug = models.SlugField()
+    slug = AutoSlugField(populate_from='title',
+                         blank=True, unique=True,  null=True)
     date_added = models.DateTimeField(auto_now_add=True)
 
     class Meta:

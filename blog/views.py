@@ -19,7 +19,10 @@ def blogDetails(request, slug):
 def search(request):
     if request.method == 'POST':
         search = request.POST['search_file']
-        search_file = Post.objects.filter(title__icontains=search)
+        if search:
+            search_file = Post.objects.filter(title__icontains=search)
+        else:
+            search_file = Post.objects.all()
 
     context = {'search_file': search_file}
     return render(request, 'blog/search.html', context)
